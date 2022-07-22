@@ -23,25 +23,46 @@ public class Solution {
      * @return
      */
     public Integer[] numberFamily(Integer number, Integer[] possibleFamilyMembers){
-        List<Integer> output = new ArrayList<>();
+//        List<Integer> output = new ArrayList<>();
+//        Arrays.sort(possibleFamilyMembers);
+//        List<Integer> nums = new ArrayList<>(Arrays.asList(possibleFamilyMembers));
+//        int start = nums.indexOf(number);
+//        for (int i = start - 1; i < possibleFamilyMembers.length - 1; i++) {
+//            if (Math.abs(possibleFamilyMembers[i] - possibleFamilyMembers[i + 1]) <= 1) {
+//                output.add(possibleFamilyMembers[i + 1]);
+//            }
+//        }
+//        for (int i = start; i > 0; i--) {
+//            if (Math.abs(possibleFamilyMembers[i] - possibleFamilyMembers[i - 1]) <= 1) {
+//                output.add(possibleFamilyMembers[i - 1]);
+//                continue;
+//            }
+//            break;
+//        }
+//        Integer[] family = new Integer[output.size()];
+//        family = output.toArray(family);
+//        Arrays.sort(family);
+//        return family;
+        List<Integer> family = new ArrayList<>();
         Arrays.sort(possibleFamilyMembers);
-        List<Integer> nums = new ArrayList<>(Arrays.asList(possibleFamilyMembers));
-        int start = nums.indexOf(number);
-        for (int i = start - 1; i < possibleFamilyMembers.length - 1; i++) {
-            if (Math.abs(possibleFamilyMembers[i] - possibleFamilyMembers[i + 1]) <= 1) {
-                output.add(possibleFamilyMembers[i + 1]);
+        if (Arrays.asList(possibleFamilyMembers).contains(number)){
+            family.add(number);
+        } else {return (Integer[]) family.toArray();}
+        for (int i = 0; i < possibleFamilyMembers.length-1; i++) {
+            int current = number;
+            if (possibleFamilyMembers[i] == current + 1){
+                family.add(possibleFamilyMembers[i]);
+                current = possibleFamilyMembers[i];
             }
         }
-        for (int i = start; i > 0; i--) {
-            if (Math.abs(possibleFamilyMembers[i] - possibleFamilyMembers[i - 1]) <= 1) {
-                output.add(possibleFamilyMembers[i - 1]);
-                continue;
+        for (int j = number; j > 0; j--) {
+            int currentN = number;
+            if (possibleFamilyMembers[j] == currentN - 1){
+                family.add(possibleFamilyMembers[j]);
+                currentN = possibleFamilyMembers[j];
             }
-            break;
         }
-        Integer[] family = new Integer[output.size()];
-        family = output.toArray(family);
-        Arrays.sort(family);
-        return family;
+        System.out.println(family);
+        return (Integer[]) family.toArray();
     }
 }
