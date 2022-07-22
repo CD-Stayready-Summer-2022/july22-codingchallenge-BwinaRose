@@ -48,21 +48,22 @@ public class Solution {
         if (Arrays.asList(possibleFamilyMembers).contains(number)){
             family.add(number);
         } else {return (Integer[]) family.toArray();}
+        int current = number;
         for (int i = 0; i < possibleFamilyMembers.length-1; i++) {
-            int current = number;
             if (possibleFamilyMembers[i] == current + 1){
                 family.add(possibleFamilyMembers[i]);
                 current = possibleFamilyMembers[i];
             }
         }
-        for (int j = number; j > 0; j--) {
-            int currentN = number;
+        int currentN = number;
+        for (int j = number; j >= 0; j--) {
             if (possibleFamilyMembers[j] == currentN - 1){
                 family.add(possibleFamilyMembers[j]);
                 currentN = possibleFamilyMembers[j];
             }
         }
-        System.out.println(family);
-        return (Integer[]) family.toArray();
+        Integer[] arr = family.toArray(new Integer[0]);
+        Arrays.sort(arr);
+        return arr;
     }
 }
