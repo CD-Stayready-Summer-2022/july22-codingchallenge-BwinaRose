@@ -23,26 +23,7 @@ public class Solution {
      * @return
      */
     public Integer[] numberFamily(Integer number, Integer[] possibleFamilyMembers){
-//        List<Integer> output = new ArrayList<>();
-//        Arrays.sort(possibleFamilyMembers);
-//        List<Integer> nums = new ArrayList<>(Arrays.asList(possibleFamilyMembers));
-//        int start = nums.indexOf(number);
-//        for (int i = start - 1; i < possibleFamilyMembers.length - 1; i++) {
-//            if (Math.abs(possibleFamilyMembers[i] - possibleFamilyMembers[i + 1]) <= 1) {
-//                output.add(possibleFamilyMembers[i + 1]);
-//            }
-//        }
-//        for (int i = start; i > 0; i--) {
-//            if (Math.abs(possibleFamilyMembers[i] - possibleFamilyMembers[i - 1]) <= 1) {
-//                output.add(possibleFamilyMembers[i - 1]);
-//                continue;
-//            }
-//            break;
-//        }
-//        Integer[] family = new Integer[output.size()];
-//        family = output.toArray(family);
-//        Arrays.sort(family);
-//        return family;
+
         List<Integer> family = new ArrayList<>();
         Arrays.sort(possibleFamilyMembers);
         if (Arrays.asList(possibleFamilyMembers).contains(number)){
